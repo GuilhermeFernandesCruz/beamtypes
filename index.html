@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BeamType — Your keyboard. Anywhere.</title>
+<meta name="description" content="BeamType é um dispositivo ultracompacto que projeta um teclado e um trackpad a laser sobre qualquer superfície plana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#teclado">Pular para o teclado interativo</a>
+
+<!-- ============ NAVBAR ============ -->
+<header class="nav" id="topo">
+  <div class="wrap nav__inner">
+    <a class="logo" href="#topo" aria-label="BeamType, ir para o topo">
+      <span class="logo__mark" aria-hidden="true"></span>BEAMTYPE
+    </a>
+
+    <nav class="nav__links" id="menu" aria-label="Navegação principal">
+      <a href="#produto">Produto</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#teclado">Experimente</a>
+      <a href="#especificacoes">Especificações</a>
+      <a class="btn btn--solid nav__buy" href="#cta">Comprar</a>
+    </nav>
+
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="produto">
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
+      <p class="hero__brand">BEAMTYPE</p>
+      <h1 class="hero__title">Your keyboard.<br>Anywhere.</h1>
+      <p class="hero__lead">Um teclado completo.<br>Sem ocupar espaço.</p>
+      <div class="hero__actions">
+        <a class="btn btn--solid" href="#teclado">Experimente</a>
+        <a class="btn btn--ghost" href="#como-funciona">Conheça o produto</a>
+      </div>
+      <dl class="hero__facts">
+        <div><dt>Peso</dt><dd>120 g</dd></div>
+        <div><dt>Bateria</dt><dd>30 h</dd></div>
+        <div><dt>Conexão</dt><dd>Bluetooth 5.3</dd></div>
+      </dl>
+    </div>
+
+    <figure class="hero__figure" id="heroFigure">
+      <!-- Substitua pelo render fotorrealista final em assets/images/ -->
+      <img class="hero__photo" id="heroPhoto"
+           src="assets/images/beamtype-hero.jpg"
+           alt="Dispositivo BeamType, pequeno e preto, sobre uma mesa escura projetando um teclado e um trackpad luminosos.">
+      <!-- Fallback em CSS puro enquanto a imagem final não é adicionada -->
+      <div class="mock" aria-hidden="true">
+        <div class="mock__device"><span class="mock__lens"></span></div>
+        <div class="mock__beam"></div>
+        <div class="mock__floor">
+          <div class="mock__keys">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span class="mock__space"></span>
+          </div>
+          <div class="mock__pad"></div>
+        </div>
+      </div>
+      <figcaption class="hero__caption">Projeção laser sobre superfície plana</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="section steps" id="como-funciona">
+  <div class="wrap">
+    <h2 class="section__title">Do bolso para a superfície.</h2>
+    <ol class="steps__list">
+      <li class="step reveal">
+        <span class="step__num">01</span>
+        <h3>Projete</h3>
+        <p>Posicione o BeamType sobre qualquer superfície.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__num">02</span>
+        <h3>Conecte</h3>
+        <p>Conecte via Bluetooth ao seu dispositivo.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__num">03</span>
+        <h3>Digite</h3>
+        <p>Use teclado e trackpad como em um notebook.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ TECLADO INTERATIVO ============ -->
+<section class="section demo" id="teclado">
+  <div class="wrap">
+    <div class="demo__head">
+      <h2 class="section__title">Teste a projeção agora.</h2>
+      <p class="section__lead">Clique nas teclas ou use o teclado físico do seu computador. O que você digitar aparece no campo abaixo.</p>
+    </div>
+
+    <div class="field">
+      <label class="field__label" for="saida">Campo de demonstração</label>
+      <textarea class="field__input" id="saida" rows="2" placeholder="Digite alguma coisa..." autocomplete="off" spellcheck="false"></textarea>
+      <div class="field__meta">
+        <button class="chip" type="button" id="limpar">Limpar</button>
+        <span class="chip chip--static" id="contador" aria-live="polite">0 caracteres</span>
+      </div>
+    </div>
+
+    <div class="board" id="board" role="group" aria-label="Teclado virtual projetado">
+      <div class="board__glow" aria-hidden="true"></div>
+      <div class="board__keys" id="keys"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRACKPAD ============ -->
+<section class="section pad" id="trackpad">
+  <div class="wrap pad__inner">
+    <div class="pad__copy">
+      <h2 class="section__title">Keyboard. Trackpad. One device.</h2>
+      <p class="section__lead">O mesmo feixe projeta a área de toque. Mova o ponteiro dentro da moldura para ver o cursor acompanhar o movimento e clique para registrar um toque.</p>
+      <p class="pad__hint"><span>Move your cursor</span><span>Click anywhere</span></p>
+      <p class="pad__note" id="padStatus" aria-live="polite">Aguardando movimento</p>
+    </div>
+    <div class="pad__surface" id="padSurface" tabindex="0" role="application" aria-label="Demonstração visual do trackpad projetado">
+      <span class="pad__grid" aria-hidden="true"></span>
+      <span class="pad__cursor" id="padCursor" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARAÇÃO ============ -->
+<section class="section compare">
+  <div class="wrap">
+    <h2 class="section__title">Less hardware. More freedom.</h2>
+
+    <div class="compare__grid">
+      <article class="card-cmp" id="cmpTrad">
+        <h3>Teclado tradicional</h3>
+        <dl>
+          <div><dt>Peso</dt><dd>800 g</dd></div>
+          <div><dt>Espaço</dt><dd>Grande</dd></div>
+          <div><dt>Mobilidade</dt><dd>Limitada</dd></div>
+        </dl>
+      </article>
+
+      <article class="card-cmp" id="cmpBeam">
+        <h3>BeamType</h3>
+        <dl>
+          <div><dt>Peso</dt><dd>120 g</dd></div>
+          <div><dt>Espaço</dt><dd>Praticamente zero</dd></div>
+          <div><dt>Mobilidade</dt><dd>Alta</dd></div>
+        </dl>
+      </article>
+    </div>
+
+    <div class="slider">
+      <span class="slider__end">Tradicional</span>
+      <div class="slider__track">
+        <label class="sr-only" for="balanca">Ênfase entre teclado tradicional e BeamType</label>
+        <input type="range" id="balanca" min="0" max="100" value="50" step="1">
+        <span class="slider__fill" id="sliderFill" aria-hidden="true"></span>
+      </div>
+      <span class="slider__end">BeamType</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECNOLOGIA ============ -->
+<section class="section tech">
+  <div class="wrap">
+    <h2 class="section__title">A tecnologia dentro do feixe.</h2>
+    <div class="tech__grid">
+      <article class="card reveal"><h3>Laser projection</h3><p>Projete teclado e trackpad sobre superfícies planas.</p></article>
+      <article class="card reveal"><h3>Bluetooth</h3><p>Conecte-se aos seus dispositivos sem cabos.</p></article>
+      <article class="card reveal"><h3>Ultra compact</h3><p>Leve apenas o necessário.</p></article>
+      <article class="card reveal"><h3>Long battery</h3><p>Até 30 horas de autonomia.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESPECIFICAÇÕES ============ -->
+<section class="section specs" id="especificacoes">
+  <div class="wrap">
+    <h2 class="section__title">Especificações</h2>
+    <dl class="specs__list">
+      <div class="spec reveal"><dt>Conectividade</dt><dd>Bluetooth 5.3</dd></div>
+      <div class="spec reveal"><dt>Bateria</dt><dd>30 horas</dd></div>
+      <div class="spec reveal"><dt>Projeção</dt><dd>Teclado + Trackpad</dd></div>
+      <div class="spec reveal"><dt>Compatibilidade</dt><dd>Windows / macOS / Android</dd></div>
+      <div class="spec reveal"><dt>Peso</dt><dd>120 g</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section cta" id="cta">
+  <div class="wrap cta__inner">
+    <h2 class="cta__title">Less hardware.<br>More possibilities.</h2>
+    <p>BeamType coloca teclado e trackpad onde você precisar.</p>
+    <button class="btn btn--solid btn--lg" type="button" id="ctaBtn">Experimente agora</button>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <a class="logo" href="#topo"><span class="logo__mark" aria-hidden="true"></span>BEAMTYPE</a>
+    <nav class="footer__links" aria-label="Rodapé">
+      <a href="#produto">Produto</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#teclado">Experimente</a>
+      <a href="#especificacoes">Especificações</a>
+    </nav>
+    <p class="footer__note">© 2026 BeamType. Conceito fictício desenvolvido para demonstração.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
